@@ -12,7 +12,7 @@ It demonstrates responsive design, modular architecture, and features like:
 
 ## Screenshots
 ![Homepage](screenshots/home.png)
-![About Us](screenshots/about.png)
+![About Us](OneTranportCompany/blob/master/OneTranportCompany/About-us.png)
 ![Testimonials](screenshots/testimonials.png)
 
 ---
