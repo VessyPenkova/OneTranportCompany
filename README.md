@@ -18,7 +18,7 @@ It demonstrates responsive design, modular architecture, and features like:
 ---
 
 ## Tech Stack
-- **ASP.NET Core MVC 7.0**
+- **ASP.NET Core MVC 8.0**
 - **Bootstrap 5.3**
 - **Entity Framework Core**
 - **SQL Server LocalDB**
