@@ -1,0 +1,15 @@
+﻿@* Simple, reusable hero for all About pages *@
+@{
+    var title = ViewData["Title"] as string ?? "About One Transport Company";
+    var subtitle = ViewData["Subtitle"] as string;
+}
+<section class="about-hero mb-4">
+    <div class="about-hero__image"></div>
+    <div class="container py-4">
+        <h1 class="display-5 fw-bold mb-2">@title</h1>
+        @if (!string.IsNullOrWhiteSpace(subtitle))
+        {
+            <p class="lead text-muted mb-0">@subtitle</p>
+        }
+    </div>
+</section>

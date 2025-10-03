@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<div class="row align-items-center">
+    <div class="col-lg-7">
+        <h1 class="display-5 fw-bold">Reliable Transport. Everywhere.</h1>
+        <p class="lead">
+            One Transport Company moves your goods safely and on time — road, pallet, full truckload, or last-mile.
+        </p>
+        <a class="btn btn-primary btn-lg me-2" asp-action="SendRequest">Get a Quote</a>
+        <a class="btn btn-outline-secondary btn-lg" asp-action="About">Learn more</a>
+    </div>
+    <div class="col-lg-5">
+        <div class="ratio ratio-16x9 rounded shadow-sm">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=23.3%2C42.6%2C23.5%2C42.8&layer=mapnik"
+                    title="Service area map"></iframe>
+        </div>
+    </div>
+</div>
+
+<hr class="my-5" />
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Road Freight</h5>
+                <p class="card-text">FTL, LTL, pallet shipments with live tracking and temperature control options.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Express Delivery</h5>
+                <p class="card-text">Same-day and next-day solutions for time-critical shipments in the region.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Custom Solutions</h5>
+                <p class="card-text">Dedicated vehicles, special handling, and white-glove last-mile services.</p>
+            </div>
+        </div>
+    </div>
+</div>

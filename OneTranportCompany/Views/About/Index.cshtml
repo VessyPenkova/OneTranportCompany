@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "About One Transport Company";
+    ViewData["Subtitle"] = "Sections flip automatically, like pages in a book.";
+}
+<partial name="~/Views/Shared/_AboutHero.cshtml" />
+
+<div id="aboutCarousel"
+     class="carousel slide about-carousel mb-4"
+     data-bs-ride="carousel" data-bs-interval="4500"
+     data-bs-pause="false" data-bs-touch="false"
+     data-bs-keyboard="false" data-bs-wrap="true">
+
+    <div class="carousel-inner">
+
+        <!-- Page 1 -->
+        <div class="carousel-item active">
+            <div class="about-page d-md-flex">
+                <div class="about-page__image" style="background-image:url('/images/about-industries.jpg');"></div>
+                <div class="about-page__content">
+                    <h2 class="mb-2">Industries we serve</h2>
+                    <p class="typewrite" data-text="Tailored road freight for FMCG, Electronics, Pharma (GDP-aware), and more."></p>
+                    <a class="btn btn-primary mt-2" asp-controller="About" asp-action="Industries">Explore industries</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 : OUR PEOPLE (extended sequential typing on the same slide) -->
+        <div class="carousel-item">
+            <div class="about-page d-md-flex">
+                <div class="about-page__image" style="background-image:url('/images/about-people.jpg');"></div>
+                <div class="about-page__content">
+                    <h2 class="mb-2">Our people</h2>
+
+                    <!-- First line types as before -->
+                    <p class="typewrite" data-text="24/7 operations desk, trained drivers, and proactive communication."></p>
+
+                    <!-- Then we continue typing this whole block, element by element -->
+                    <div class="type-seq mt-3">
+                        <p class="tw-step" data-text="Our operations desk works around the clock to plan routes, brief drivers, and keep you informed. Drivers undergo regular safety and load-securement training."></p>
+
+                        <h4 class="tw-step mt-3" data-text="Operations desk"></h4>
+                        <ul class="mb-2">
+                            <li class="tw-step" data-text="Live tracking & proactive ETA updates"></li>
+                            <li class="tw-step" data-text="Escalation procedures for time-critical shipments"></li>
+                        </ul>
+
+                        <h4 class="tw-step mt-3" data-text="Driver training"></h4>
+                        <ul>
+                            <li class="tw-step" data-text="Load securement & ADR awareness"></li>
+                            <li class="tw-step" data-text="Customer service & proof-of-delivery (POD) protocols"></li>
+                        </ul>
+                    </div>
+
+                    <a class="btn btn-primary mt-2" asp-controller="About" asp-action="People">Meet the team</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="carousel-item">
+            <div class="about-page d-md-flex">
+                <div class="about-page__image" style="background-image:url('/images/about-why.jpg');"></div>
+                <div class="about-page__content">
+                    <h2 class="mb-2">Why choose us?</h2>
+                    <p class="typewrite" data-text="Reliability above 98% on-time, visibility, insured cargo, and flexible capacity."></p>
+                    <a class="btn btn-primary mt-2" asp-controller="About" asp-action="WhyChooseUs">See the proof</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="carousel-item">
+            <div class="about-page d-md-flex">
+                <div class="about-page__image" style="background-image:url('/images/about-awards.jpg');"></div>
+                <div class="about-page__content">
+                    <h2 class="mb-2">Awards & accreditations</h2>
+                    <p class="typewrite" data-text="Quality and compliance recognitions from trusted bodies."></p>
+                    <a class="btn btn-primary mt-2" asp-controller="About" asp-action="Awards">View credentials</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5 -->
+        <div class="carousel-item">
+            <div class="about-page d-md-flex">
+                <div class="about-page__image" style="background-image:url('/images/about-policies.jpg');"></div>
+                <div class="about-page__content">
+                    <h2 class="mb-2">Policies</h2>
+                    <p class="typewrite" data-text="Safety, environmental responsibility, and GDPR-aligned data protection."></p>
+                    <a class="btn btn-primary mt-2" asp-controller="About" asp-action="Policies">Read policies</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Optional quick links under the carousel -->
+<div class="row row-cols-1 row-cols-md-2 g-3">
+    <div class="col"><a class="link-underline link-underline-opacity-0" asp-controller="About" asp-action="Industries"><strong>Industries we serve</strong></a></div>
+    <div class="col"><a class="link-underline link-underline-opacity-0" asp-controller="About" asp-action="Awards"><strong>Awards & accreditations</strong></a></div>
+    <div class="col"><a class="link-underline link-underline-opacity-0" asp-controller="About" asp-action="People"><strong>Our people</strong></a></div>
+    <div class="col"><a class="link-underline link-underline-opacity-0" asp-controller="About" asp-action="Policies"><strong>Policies</strong></a></div>
+    <div class="col"><a class="link-underline link-underline-opacity-0" asp-controller="About" asp-action="WhyChooseUs"><strong>Why choose us?</strong></a></div>
+</div>
+
+@section Scripts {
+    <script>
+        // Typewriter for single line + sequential typing for blocks
+        (function () {
+            const TYPE_SPEED = 20;   // ms per character
+            const GAP_BETWEEN_STEPS = 200; // pause between elements in a sequence
+
+            function typeInto(el, done) {
+                if (!el) return done && done();
+                const full = el.getAttribute('data-text') || '';
+                el.textContent = '';
+                el.classList.add('typing');
+
+                let i = 0;
+                function step() {
+                    if (i <= full.length) {
+                        el.textContent = full.slice(0, i);
+                        i++;
+                        setTimeout(step, TYPE_SPEED);
+                    } else {
+                        el.classList.remove('typing');
+                        if (done) done();
+                    }
+                }
+                step();
+            }
+
+            // Type through a sequence of .tw-step elements
+            function typeSequence(container) {
+                if (!container) return;
+                const steps = Array.from(container.querySelectorAll('.tw-step'));
+                let idx = 0;
+
+                function next() {
+                    if (idx >= steps.length) return;
+                    const el = steps[idx++];
+                    // Ensure element is visible while typing
+                    el.style.visibility = 'visible';
+                    typeInto(el, () => setTimeout(next, GAP_BETWEEN_STEPS));
+                }
+                // Hide all initially, then start
+                steps.forEach(e => { e.style.visibility = 'hidden'; });
+                setTimeout(next, GAP_BETWEEN_STEPS);
+            }
+
+            function runForActiveSlide() {
+                const activeSlide = document.querySelector('#aboutCarousel .carousel-item.active');
+                if (!activeSlide) return;
+
+                // 1) primary one-line typewriter
+                const first = activeSlide.querySelector('.typewrite');
+                typeInto(first, () => {
+                    // 2) if a type-seq container exists, type through its steps
+                    const seq = activeSlide.querySelector('.type-seq');
+                    typeSequence(seq);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', runForActiveSlide);
+
+            const carousel = document.getElementById('aboutCarousel');
+            if (carousel) {
+                carousel.addEventListener('slid.bs.carousel', runForActiveSlide);
+            }
+        })();
+    </script>
+}

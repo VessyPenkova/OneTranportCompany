@@ -1,0 +1,820 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.card {
+    border-radius: 1rem;
+}
+
+/* About hero */
+.about-hero__image {
+    width: 100%;
+    height: 200px;
+    background-image: url('/images/about-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+@media (min-width: 992px) {
+    .about-hero__image {
+        height: 260px;
+    }
+}
+
+/* Keep the navbar above all page content */
+.navbar {
+    position: sticky; /* or 'relative' if you don't want sticky */
+    top: 0;
+    z-index: 1100; /* higher than typical content */
+}
+
+    /* Ensure dropdown can overlap anything below (iframes, cards, etc.) */
+    .navbar .dropdown-menu {
+        z-index: 2000;
+    }
+
+/* Do not let the map iframe sit above overlays/menus */
+.embed-map, /* class we’ll add on the map container */
+.embed-map iframe,
+.ratio iframe {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto; /* keep map interactive; set to none if you prefer */
+}
+
+/* In case a parent introduces overflow issues */
+.navbar .container, .navbar .collapse {
+    overflow: visible !important;
+}
+
+
+/* ===== About swipe pages (book-like) ===== */
+.about-carousel {
+    perspective: 1200px;
+}
+
+    .about-carousel .carousel-item {
+        transition: transform .6s ease, opacity .6s ease;
+    }
+
+    .about-carousel .carousel-item-start,
+    .about-carousel .active.carousel-item-end {
+        transform: rotateY(-8deg) translateX(-10px);
+    }
+
+    .about-carousel .carousel-item-end,
+    .about-carousel .active.carousel-item-start {
+        transform: rotateY(8deg) translateX(10px);
+    }
+
+.about-page {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.06);
+    overflow: hidden;
+}
+
+.about-page__image {
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    flex: 0 0 45%;
+}
+
+.about-page__content {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+    flex: 1 1 auto;
+}
+
+@media (min-width: 992px) {
+    .about-page__image {
+        min-height: 300px;
+    }
+
+    .about-page__content {
+        padding: 2rem;
+    }
+}
+
+/* Make sure carousel UI (if any) sits above hero image/map */
+.about-carousel .carousel-control-prev,
+.about-carousel .carousel-control-next,
+.about-carousel .carousel-indicators {
+    z-index: 5;
+}
+
+
+/* ---------- Champagne theme + typewriter ---------- */
+
+/* champagne variable */
+:root {
+    --champagne: #F7E7CE; /* soft champagne */
+    --champagne-ink: #2b2b2b; /* readable text on champagne */
+}
+
+/* Make each "page" use champagne background */
+.about-page {
+    background: var(--champagne);
+    color: var(--champagne-ink);
+}
+
+    /* Keep headings/buttons readable on champagne */
+    .about-page h2 {
+        color: var(--champagne-ink);
+    }
+
+    .about-page .btn.btn-primary {
+        box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    }
+
+/* Typewriter effect */
+.typewrite {
+    position: relative;
+    min-height: 1.6em; /* reserve space to avoid layout shift */
+    white-space: normal;
+}
+
+    .typewrite.typing::after {
+        content: "│";
+        position: absolute;
+        right: -2px;
+        animation: caret-blink 0.9s steps(1) infinite;
+        opacity: .8;
+    }
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Keep previous 3D page tilt from earlier solution */
+.about-carousel {
+    perspective: 1200px;
+}
+
+    .about-carousel .carousel-item {
+        transition: transform .6s ease, opacity .6s ease;
+    }
+
+    .about-carousel .carousel-item-start,
+    .about-carousel .active.carousel-item-end {
+        transform: rotateY(-8deg) translateX(-10px);
+    }
+
+    .about-carousel .carousel-item-end,
+    .about-carousel .active.carousel-item-start {
+        transform: rotateY(8deg) translateX(10px);
+    }
+
+.about-page__image {
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    flex: 0 0 45%;
+}
+
+.about-page__content {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+    flex: 1 1 auto;
+}
+
+@media (min-width: 992px) {
+    .about-page__image {
+        min-height: 300px;
+    }
+
+    .about-page__content {
+        padding: 2rem;
+    }
+}
+
+/* ===== Champagne theme + page tilt + typewriter ===== */
+
+/* theme colors */
+:root {
+    --champagne: #F7E7CE;
+    --champagne-ink: #2b2b2b;
+}
+
+/* each “page” panel */
+.about-page {
+    background: var(--champagne);
+    color: var(--champagne-ink);
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.06);
+    overflow: hidden;
+}
+
+/* image side */
+.about-page__image {
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    flex: 0 0 45%;
+}
+
+/* text side */
+.about-page__content {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+    flex: 1 1 auto;
+}
+
+@media (min-width:992px) {
+    .about-page__image {
+        min-height: 300px;
+    }
+
+    .about-page__content {
+        padding: 2rem;
+    }
+}
+
+/* subtle 3D “page flip” feel on slide */
+.about-carousel {
+    perspective: 1200px;
+}
+
+    .about-carousel .carousel-item {
+        transition: transform .6s ease, opacity .6s ease;
+    }
+
+    .about-carousel .carousel-item-start,
+    .about-carousel .active.carousel-item-end {
+        transform: rotateY(-8deg) translateX(-10px);
+    }
+
+    .about-carousel .carousel-item-end,
+    .about-carousel .active.carousel-item-start {
+        transform: rotateY(8deg) translateX(10px);
+    }
+
+/* typewriter effect for .typewrite elements */
+.typewrite {
+    position: relative;
+    min-height: 1.6em; /* prevent layout jump */
+    white-space: normal;
+}
+
+    .typewrite.typing::after {
+        content: "│";
+        position: absolute;
+        right: -2px;
+        animation: caret-blink .9s steps(1) infinite;
+        opacity: .8;
+    }
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
+}
+/* ====== Shared helper for slide-active targeting ====== */
+#aboutCarousel .carousel-item .about-page__image {
+    /* Default state (non-active) */
+    transform-origin: center;
+    will-change: transform, filter, opacity, clip-path, mask-position, mask-size;
+}
+
+#aboutCarousel .carousel-item.active .about-page__image {
+    /* The active slide triggers animations below via selectors */
+}
+
+/* 0) CROSSFADE — already provided by the carousel transition itself,
+   but we ensure image opacity animates smoothly when slide becomes active */
+#aboutCarousel .carousel-item .about-page__image {
+    opacity: .8;
+    transition: opacity .6s ease;
+}
+
+#aboutCarousel .carousel-item.active .about-page__image {
+    opacity: 1;
+}
+
+/* 1) KEN BURNS — slow zoom + slight pan */
+.fx-kenburns {
+    transform: scale(1.05) translateZ(0);
+}
+
+#aboutCarousel .carousel-item.active .fx-kenburns {
+    animation: kenburns 4.5s ease both; /* match your slide interval */
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1.05) translate(-2%, -2%);
+    }
+
+    100% {
+        transform: scale(1.15) translate(2%, 2%);
+    }
+}
+
+/* 2) ZOOM IN */
+.fx-zoom-in {
+    transform: scale(1.05);
+}
+
+#aboutCarousel .carousel-item.active .fx-zoom-in {
+    animation: zoomIn 0.9s ease-out both;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1.2);
+        filter: blur(6px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* 3) ZOOM OUT */
+.fx-zoom-out {
+    transform: scale(1.15);
+}
+
+#aboutCarousel .carousel-item.active .fx-zoom-out {
+    animation: zoomOut 0.9s ease-out both;
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(1.0);
+        filter: blur(6px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.15);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* 4) BLUR IN */
+.fx-blur-in {
+    filter: blur(8px);
+    opacity: 0;
+}
+
+#aboutCarousel .carousel-item.active .fx-blur-in {
+    animation: blurIn .8s ease-out both;
+}
+
+@keyframes blurIn {
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* 5) GRAYSCALE -> COLOR */
+.fx-gray-to-color {
+    filter: grayscale(100%) contrast(1.05);
+}
+
+#aboutCarousel .carousel-item.active .fx-gray-to-color {
+    animation: grayToColor 1.1s ease-out both;
+}
+
+@keyframes grayToColor {
+    to {
+        filter: grayscale(0%) contrast(1);
+    }
+}
+
+/* 6) WIPE REVEAL (left to right) */
+.fx-wipe {
+    position: relative;
+    overflow: hidden;
+}
+
+    .fx-wipe::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--champagne, #F7E7CE); /* same champagne tone */
+        transform: translateX(0%);
+    }
+
+#aboutCarousel .carousel-item.active .fx-wipe::after {
+    animation: wipeReveal 0.9s ease-out forwards;
+}
+
+@keyframes wipeReveal {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* 7) DOTS -> LINES — approximate using CSS masks */
+/* Start with large radial "dots", then stretch into vertical lines as mask grows */
+.fx-dots-to-lines {
+    -webkit-mask-image: radial-gradient(circle at 10px 10px, #000 8px, transparent 9px);
+    mask-image: radial-gradient(circle at 10px 10px, #000 8px, transparent 9px);
+    -webkit-mask-size: 24px 24px;
+    mask-size: 24px 24px;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+
+#aboutCarousel .carousel-item.active .fx-dots-to-lines {
+    animation: dotsToLines 1.2s ease forwards;
+}
+
+@keyframes dotsToLines {
+    0% {
+        -webkit-mask-size: 24px 24px;
+        mask-size: 24px 24px;
+    }
+
+    50% {
+        -webkit-mask-size: 80px 24px;
+        mask-size: 80px 24px;
+    }
+
+    100% {
+        -webkit-mask-image: linear-gradient(#000 0 0);
+        mask-image: linear-gradient(#000 0 0);
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+    }
+}
+/* Fallback for browsers without mask support: just fade in */
+@supports not ((mask-image: linear-gradient(#000 0 0)) or (-webkit-mask-image: linear-gradient(#000 0 0))) {
+    .fx-dots-to-lines {
+        opacity: 0;
+    }
+
+    #aboutCarousel .carousel-item.active .fx-dots-to-lines {
+        animation: simpleFade .8s ease forwards;
+    }
+
+    @keyframes simpleFade {
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* 8) DIAGONAL REVEAL (clip-path) */
+.fx-diagonal-reveal {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+#aboutCarousel .carousel-item.active .fx-diagonal-reveal {
+    animation: diagonalReveal .9s ease-out forwards;
+}
+
+@keyframes diagonalReveal {
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* Champagne background for the whole page panel (kept from prior step) */
+.about-page {
+    background: var(--champagne, #F7E7CE);
+    color: var(--champagne-ink, #2b2b2b);
+}
+
+
+/* ===== Champagne theme + page tilt + typewriter ===== */
+:root {
+    --champagne: #F7E7CE;
+    --champagne-ink: #2b2b2b;
+}
+
+.about-page {
+    background: var(--champagne);
+    color: var(--champagne-ink);
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.06);
+    overflow: hidden;
+}
+
+.about-page__image {
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    flex: 0 0 45%;
+}
+
+.about-page__content {
+    padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+    flex: 1 1 auto;
+}
+
+@media (min-width:992px) {
+    .about-page__image {
+        min-height: 300px;
+    }
+
+    .about-page__content {
+        padding: 2rem;
+    }
+}
+
+.about-carousel {
+    perspective: 1200px;
+}
+
+    .about-carousel .carousel-item {
+        transition: transform .6s ease, opacity .6s ease;
+    }
+
+    .about-carousel .carousel-item-start,
+    .about-carousel .active.carousel-item-end {
+        transform: rotateY(-8deg) translateX(-10px);
+    }
+
+    .about-carousel .carousel-item-end,
+    .about-carousel .active.carousel-item-start {
+        transform: rotateY(8deg) translateX(10px);
+    }
+/* typewriter caret */
+.typewrite {
+    position: relative;
+    min-height: 1.6em;
+    white-space: normal;
+}
+
+    .typewrite.typing::after {
+        content: "│";
+        position: absolute;
+        right: -2px;
+        animation: caret-blink .9s steps(1) infinite;
+        opacity: .8;
+    }
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ---- Nice spacing for the extended content on “Our people” ---- */
+.type-seq h4 {
+    display: inline-block;
+    padding: .15rem .35rem;
+    background: rgba(0,0,0,.06);
+    border-radius: .25rem;
+    margin-bottom: .35rem;
+}
+
+.type-seq ul {
+    margin-left: 1.1rem;
+    margin-bottom: .5rem;
+}
+
+.type-seq li {
+    margin: .2rem 0;
+}
+
+
+
+/* ==== THEME COLORS ==== */
+:root {
+    --brand-dark: #4b3832; /* brown/grey base */
+    --brand-accent: #b23a48; /* muted red accent */
+    --brand-light: #f7e7ce; /* champagne background */
+}
+
+/* Navbar */
+.navbar-custom {
+    background: linear-gradient(90deg, var(--brand-dark), var(--brand-accent));
+}
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+        color: #fff !important;
+        transition: color 0.2s;
+    }
+
+        .navbar-custom .nav-link:hover {
+            color: var(--brand-light) !important;
+        }
+
+/* Footer */
+.footer-custom {
+    background: linear-gradient(90deg, var(--brand-dark), var(--brand-accent));
+    color: #f8f9fa;
+}
+
+    .footer-custom a {
+        color: #f8f9fa;
+        margin: 0 0.4rem;
+        transition: color 0.2s;
+    }
+
+        .footer-custom a:hover {
+            color: var(--brand-light);
+        }
+
+/* Brand Colors */
+:root {
+    --brand-bg: #5c4033; /* brown-grey base */
+    --brand-accent: #a94442; /* subtle red accent */
+    --brand-text: #ffffff;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: var(--brand-bg);
+}
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .nav-link:focus,
+    .navbar-custom .nav-link:hover {
+        color: var(--brand-text);
+    }
+
+    .navbar-custom .dropdown-menu {
+        background-color: #fff;
+    }
+
+/* Footer */
+.footer-custom {
+    background-color: var(--brand-bg);
+    color: var(--brand-text);
+}
+
+    .footer-custom a {
+        color: var(--brand-text);
+    }
+
+        .footer-custom a:hover {
+            color: var(--brand-accent);
+        }
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--brand-accent);
+    border-color: var(--brand-accent);
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #922d2b; /* darker red tone */
+        border-color: #922d2b;
+    }
+
+/* Outline light button in footer */
+.btn-outline-light {
+    color: var(--brand-text);
+    border-color: var(--brand-text);
+}
+
+    .btn-outline-light:hover {
+        color: var(--brand-bg);
+        background-color: var(--brand-text);
+        border-color: var(--brand-text);
+    }
+
+
+/* ===== Global Text Colors ===== */
+
+/* Main body text */
+body {
+    color: #3b2a23; /* dark brown instead of black */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #3b2a23; /* dark brown */
+    font-weight: 600;
+}
+
+/* Navbar brand and links (when not active) */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #f5f5f5; /* keep navbar links light for contrast */
+}
+
+/* Links inside the content */
+a {
+    color: #5c4033; /* medium brown for links */
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #a94442; /* red accent on hover */
+        text-decoration: underline;
+    }
+
+/* Carousel content text */
+.about-page__content h2,
+.about-page__content p {
+    color: #3b2a23; /* dark brown text on champagne bg */
+}
+
+
+/* ===== Brand Button Styling ===== */
+.btn-brand {
+    background-color: #6e3b31; /* brown-grey with a red undertone */
+    color: #fff; /* white text */
+    border: none;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-brand:hover {
+        background-color: #522a24; /* darker on hover */
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    .btn-brand:active {
+        background-color: #3b1d18; /* even darker when pressed */
+        transform: translateY(0);
+    }
+
+/* Brand-styled button (matches navbar/footer palette) */
+.btn-brand {
+    background-color: #6e3b31; /* brown-grey with a red undertone */
+    color: #ffffff; /* white text */
+    border: none;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-brand:hover,
+    .btn-brand:focus {
+        background-color: #522a24; /* darker on hover/focus */
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0,0,0,.15);
+    }
+
+    .btn-brand:active {
+        background-color: #3b1d18; /* pressed state */
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+
+
+
+/* ---------- Page background & surfaces ---------- */
+:root {
+    --page-bg: #FCF7F2; /* main page background (light champagne) */
+    --surface: #ffffff; /* cards/forms/tables stay white for clarity */
+    --text-main: #3b2a23; /* your dark-brown text */
+}
+
+/* Body & base text color */
+html, body {
+    background-color: var(--page-bg);
+}
+
+body {
+    color: var(--text-main);
+}
+
+/* Keep surfaces crisp on the warm bg */
+.card, .list-group, .table, .modal-content,
+.form-control, .form-select, .input-group .form-control {
+    background-color: var(--surface);
+}
+
+/* Optional: give cards a subtle separation on warm bg */
+.card {
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+
+/* Optional: lighten the horizontal rule to suit warm bg */
+hr {
+    color: rgba(0,0,0,.12);
+    opacity: 1;
+}

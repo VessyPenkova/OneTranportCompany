@@ -1,0 +1,127 @@
+﻿@{
+    var title = ViewData["Title"] as string ?? "One Transport Company";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@title - One Transport Company</title>
+
+    <!-- Bootstrap core -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icons for social links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <!-- Site styles (includes your theme colors) -->
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                One Transport Company
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="mainNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+
+                    <!-- Services dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="AirCharter">Air charter</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="OnBoardCourier">On board courier</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="AirFreight">Air freight</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="RoadFreight">Road freight</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="CustomsClearance">Customs clearance</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="Tracking">Tracking</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="Warehousing">Warehousing</a></li>
+                            <li><a class="dropdown-item" asp-controller="Services" asp-action="Additional">Additional services</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            About us
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="Index">About One Transport Company</a></li>
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="Industries">Industries we serve</a></li>
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="People">Our people</a></li>
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="WhyChooseUs">Why choose us?</a></li>
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="Awards">Awards and accreditations</a></li>
+                            <li><a class="dropdown-item" asp-controller="About" asp-action="Policies">Policies</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Other nav links -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="SendRequest">Send Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container py-4">
+        @if (TempData["Success"] is string s)
+        {
+            <div class="alert alert-success">@s</div>
+        }
+        @if (TempData["Error"] is string e)
+        {
+            <div class="alert alert-danger">@e</div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-custom py-4 mt-5">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <span>© @DateTime.Now.Year One Transport Company</span>
+
+            <div class="d-flex align-items-center">
+                <!-- Social icons -->
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="text-decoration-none me-2" title="LinkedIn">
+                    <i class="bi bi-linkedin" aria-label="LinkedIn"></i>
+                </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" class="text-decoration-none me-2" title="Facebook">
+                    <i class="bi bi-facebook" aria-label="Facebook"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" class="text-decoration-none me-3" title="Instagram">
+                    <i class="bi bi-instagram" aria-label="Instagram"></i>
+                </a>
+
+                <!-- Contact shortcut -->
+                <a asp-controller="Home" asp-action="Contact" class="btn btn-sm btn-outline-light">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap bundle (includes Popper for dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

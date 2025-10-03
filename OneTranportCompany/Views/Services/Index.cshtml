@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "About One Transport Company";
+    ViewData["Subtitle"] = "Reliable road transport across Europe with safety and transparency.";
+}
+<partial name="~/Views/Shared/_AboutHero.cshtml" />
+
+<div class="row">
+    <!-- Left: company text -->
+    <div class="col-lg-7">
+        <p>
+            We are a Bulgaria-based logistics partner focused on dependable road transport across Europe.
+            We prioritize transparent pricing, proactive communication, and a culture of safety.
+        </p>
+
+        <h3 class="mt-4">At a glance</h3>
+        <ul>
+            <li>Founded: 2016</li>
+            <li>Fleet: Vans, Box Trucks, and 13.6m Trailers</li>
+            <li>Specialties: FMCG, Electronics, Pharma (GDP-aware)</li>
+        </ul>
+
+        <h3 class="mt-4">What we do</h3>
+        <p>
+            From pallet and LTL to FTL and dedicated vehicles, our team coordinates routes,
+            documents, and live updates so your goods arrive on time and intact.
+        </p>
+    </div>
+
+    <!-- Middle: quick links -->
+    <div class="col-lg-3">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                About us
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li><a class="dropdown-item" asp-controller="About" asp-action="Index">About One Transport Company</a></li>
+                <li><a class="dropdown-item" asp-controller="About" asp-action="Industries">Industries we serve</a></li>
+                <li><a class="dropdown-item" asp-controller="About" asp-action="People">Our people</a></li>
+                <li><a class="dropdown-item" asp-controller="About" asp-action="WhyChooseUs">Why choose us?</a></li>
+                <li><a class="dropdown-item" asp-controller="About" asp-action="Awards">Awards and accreditations</a></li>
+                <li><a class="dropdown-item" asp-controller="About" asp-action="Policies">Policies</a></li>
+            </ul>
+        </li>
+
+    </div>
+
+    <!-- Right: map -->
+    <div class="col-lg-2">
+        <div class="ratio ratio-16x9 rounded shadow-sm embed-map">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=23.3%2C42.6%2C23.5%2C42.8&layer=mapnik"
+                    title="Service area map"></iframe>
+        </div>
+    </div>
+</div>

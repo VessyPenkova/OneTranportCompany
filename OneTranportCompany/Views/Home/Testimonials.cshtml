@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OneTransportCompany.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Testimonials";
+}
+
+<h1>What our clients say</h1>
+<p class="text-muted">Real feedback from our partners and customers.</p>
+
+<div class="row g-3">
+    @foreach (var t in Model)
+    {
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title mb-1">@t.ClientName</h5>
+                        <span class="badge bg-success">@t.Rating★</span>
+                    </div>
+                    <p class="card-text mb-2">@t.Content</p>
+                    <div class="text-muted small">Posted @t.CreatedOn.ToLocalTime().ToString("dd MMM yyyy")</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<hr class="my-4" />
+
+<h3 class="h5">Add your testimonial</h3>
+
+<form asp-action="AddTestimonial" method="post" asp-antiforgery="true" class="row g-3">
+    <div class="col-md-6">
+        <label for="ClientName" class="form-label">Your Name / Company</label>
+        <input name="ClientName" id="ClientName" class="form-control" required maxlength="100" />
+    </div>
+
+    <div class="col-md-3">
+        <label for="Rating" class="form-label">Rating (1-5)</label>
+        <input name="Rating" id="Rating" type="number" min="1" max="5" value="5" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <label for="Content" class="form-label">Your Feedback</label>
+        <textarea name="Content" id="Content" class="form-control" rows="3" required maxlength="1000"></textarea>
+    </div>
+
+    <div class="col-12">
+        <!-- THEMED BUTTON (no blue) -->
+        <button type="submit" class="btn btn-brand">Submit Testimonial</button>
+    </div>
+</form>
