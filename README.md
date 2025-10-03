@@ -11,7 +11,7 @@ It demonstrates responsive design, modular architecture, and features like:
 - 🖼️ Auto-rotating carousel with typewriter effect for section intros
 
 ## Screenshots
-![Homepage](screenshots/home.png)
+![Homepage](About-one-transport-company-industries.png)
 ![About-Us](About-us.png)
 ![Contact_us](Contact_us.png)
 
