@@ -13,7 +13,7 @@ It demonstrates responsive design, modular architecture, and features like:
 ## Screenshots
 ![Homepage](screenshots/home.png)
 ![About Us](About-us.png)
-![Testimonials](screenshots/testimonials.png)
+![Contact us](Contact_us.png)
 
 ---
 
