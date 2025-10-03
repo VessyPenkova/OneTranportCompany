@@ -15,6 +15,7 @@ It demonstrates responsive design, modular architecture, and features like:
 ![About-Us](About-one-transport-company-Awards.png)
 ![About-Us](About-one-transport-company-policies.png)
 ![About-Us](About-onr-transport-company-why-choose-us.png)
+![About-Us](About-one-transport-company-our-people.png)
 ![About-Us](About-us.png)
 ![Contact_us](Contact_us.png)
 
